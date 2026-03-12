@@ -7,8 +7,10 @@ function App() {
   return (
     <div className="app">
       <NavPanel />
-      <HeaderPanel />
-      <KanbunProject />
+      <div className="rightColumn">
+        <HeaderPanel />
+        <KanbunProject />
+      </div>
     </div>
   );
 }

@@ -1,24 +1,53 @@
 .navMain {
-    display: grid;
-    background-color: rgb(30, 30, 40);
-    min-height: 100vh;
-    max-height: 100vh;
-    width: 4rem;
-    align-items: center;
-    justify-items: center;
+  display: grid;
+  background-color: rgb(30, 30, 40);
+  height: 100vh;
+  width: 4rem;
+  align-items: start;
+  justify-items: center;
+  box-sizing: border-box;
 }
 
 .navContent {
-    display: grid;
-    align-items: start;
-    justify-items: center;
+  display: grid;
+  align-items: start;
+  justify-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem 0;
 }
 
-
-
 .navButton {
- font-size: 2rem;
- color: white;
- background: none;
- border: none;
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.navButton:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .navMain {
+    width: 2.5rem;
+  }
+
+  .navButton {
+    font-size: 1.5rem;
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navMain {
+    width: 2rem;
+  }
+
+  .navButton {
+    font-size: 1.2rem;
+  }
 }

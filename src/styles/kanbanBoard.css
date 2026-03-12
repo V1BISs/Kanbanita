@@ -1,17 +1,16 @@
-.boardContainer{
+.boardContainer {
   display: flex;
   justify-content: space-between;
   margin: 2rem 1rem;
-  width: 95vw;
-
+  width: calc(100% - 2rem);
+  gap: 1rem;
+  box-sizing: border-box;
 }
 
 .kanbanBoard {
-  width: 100vw;
-  /* max-width: 1000px;
-  min-width: 200px; */
-  gap: 1rem;
-  margin: 0 1rem;
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
   height: fit-content;
   padding-bottom: 20px;
   background-color: rgb(30, 30, 40);
@@ -22,18 +21,20 @@
 .headerBoard {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 3rem;
-  padding: 1rem 1rem;
+  padding: 1rem;
 }
 
 .headerBoardLeft {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.headerBoardRigth {
+.headerBoardRight {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -45,16 +46,12 @@
 }
 
 .boardName {
-  display: flex;
-  margin-left: 0.5rem;
   font-family: "montserrat", sans-serif;
   font-weight: 600;
   color: white;
 }
 
 .boardInTask {
-  display: flex;
-  margin-left: 0.5rem;
   font-family: "montserrat", sans-serif;
   font-weight: 600;
   color: #4a4a4a;
@@ -70,22 +67,32 @@
   border-radius: 100%;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.397);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addTask:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .task {
   display: grid;
+  gap: 0.5rem;
   padding: 15px;
-  margin: auto;
-  width: 85%;
-  height: 100px;
+  margin: 10px auto;
+  width: 90%;
   border-radius: 20px;
-  background-color: rgb(50, 50, 62);
+  background-color: rgb(48, 48, 58);
+  box-sizing: border-box;
 }
 
 .complexityTask {
-  background-color: #3378ba;
+  background: linear-gradient(
+    135deg,
+    rgb(138, 75, 255),
+    rgb(106, 45, 225)
+  ); 
   width: fit-content;
-  height: fit-content;
   padding: 5px 10px;
   border-radius: 30px;
   color: white;
@@ -103,9 +110,16 @@
 
 .progressBarBG {
   width: 100%;
-  margin: auto;
   height: 10px;
   background-color: rgba(255, 255, 255, 0.288);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(138, 75, 255), rgb(106, 45, 225));
   border-radius: 20px;
 }
 
@@ -114,5 +128,70 @@
   width: 40px;
   height: 40px;
   border-radius: 20px;
+  justify-self: end;
 }
 
+@media (max-width: 1024px) {
+  .boardContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .kanbanBoard {
+    flex: 100%;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1600px) {
+  .boardContainer {
+    justify-content: space-between; /* Равномерное распределение */
+    gap: 2rem; /* Увеличиваем gap */
+  }
+
+  .kanbanBoard {
+    flex: 1 1 400px;  /* Еще шире */
+    min-width: 350px;
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .boardContainer {
+    margin: 1rem 0.5rem;
+    width: calc(100% - 1rem);
+  }
+
+  .kanbanBoard {
+    flex: 0 1 100%;
+  }
+
+  .task {
+    width: 95%;
+    padding: 12px;
+  }
+
+  .nameTask {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .boardContainer {
+    margin: 0.5rem;
+    width: calc(100% - 1rem);
+  }
+
+  .headerBoard {
+    padding: 0.8rem;
+  }
+
+  .task {
+    padding: 10px;
+  }
+
+  .userInTask {
+    width: 35px;
+    height: 35px;
+  }
+}

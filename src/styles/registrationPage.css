@@ -45,7 +45,8 @@
 
 .registrationForm {
   display: grid;
-  gap: 1rem;
+  grid-template-rows: repeat(3, auto); 
+  gap: 1rem; 
   margin: 1rem 0 2rem 0;
 }
 
@@ -107,6 +108,54 @@
 
 .registrationButton:active {
   transform: translateY(0);
+}
+
+.registrationButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fieldContainer {
+  position: relative;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.regField {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.regField:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.regFieldError {
+  border-color: #ff4444;
+}
+
+.regFieldError:focus {
+  border-color: #ff4444;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: #ff9999;
+  font-size: 12px;
+   font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.registrationButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {

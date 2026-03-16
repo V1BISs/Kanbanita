@@ -1,17 +1,25 @@
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Router,
+  Routes,
+} from "react-router-dom";
 import "./App.css";
-import HeaderPanel from "./componets/HeaderPanel";
-import KanbunProject from "./componets/KanbunProject";
-import NavPanel from "./componets/NavPanel";
+import KanbanPage from "./pages/KanbanPage";
+import RegistrationPage from "./pages/RegistrationPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div className="app">
-      <NavPanel />
-      <div className="rightColumn">
-        <HeaderPanel />
-        <KanbunProject />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/register" replace />} />
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/kanban" element={<KanbanPage />} />
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

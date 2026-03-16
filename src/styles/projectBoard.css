@@ -1,0 +1,301 @@
+.projectBoardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
+
+.projectBoard {
+  background-color: rgb(30, 30, 40);
+  border-radius: 20px;
+  padding: 1.5rem;
+  min-height: 200px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.projectBoard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Карточка для создания новой доски */
+.addNewBoard {
+  background-color: rgba(30, 30, 40, 0.5);
+  border-radius: 20px;
+  min-height: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 2px dashed #ba66ea;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+
+.addNewBoard:hover {
+  background-color: rgba(30, 30, 40, 0.8);
+  border-color: #764ba2;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(192, 102, 234, 0.11);
+}
+
+.addBoard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.addBoard svg {
+  font-size: 4rem;
+  color: #ba66ea;
+  transition: all 0.3s ease;
+}
+
+.addBoard span {
+  color: rgb(243, 243, 243);
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.addNewBoard:hover svg {
+  transform: scale(1.1);
+}
+
+.addNewBoard:hover span {
+  opacity: 1;
+}
+
+.nameProject {
+  color: rgb(243, 243, 243);
+  font-family: "montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.description {
+  color: rgb(200, 200, 200);
+  font-family: "montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.progressBarToBoard {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(128, 128, 128, 0.3);
+  border-radius: 20px;
+  margin: 0.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressBarToBoard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 75%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 20px;
+}
+
+.footerCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.users {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.user1:hover,
+.user2:hover,
+.user3:hover,
+.user4:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.reaction {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.like,
+.comments {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(243, 243, 243);
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.like svg,
+.comments svg {
+  font-size: 1.2rem;
+  color: #e66bff;
+  transition: transform 0.2s ease;
+}
+
+.comments svg {
+  color: #a94ecd;
+}
+
+.like:hover svg,
+.comments:hover svg {
+  transform: scale(1.1);
+}
+
+/* Адаптивность */
+@media screen and (max-width: 768px) {
+  .projectBoardContainer {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .nameProject {
+    font-size: 1.3rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .user1, .user2, .user3, .user4 {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .addBoard svg {
+    font-size: 3.5rem;
+  }
+  
+  .addBoard span {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projectBoardContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .projectBoard,
+  .addNewBoard {
+    padding: 1.2rem;
+    min-height: 180px;
+  }
+
+  .footerCard {
+    flex-wrap: nowrap;
+  }
+
+  .user1, .user2, .user3, .user4 {
+    width: 28px;
+    height: 28px;
+  }
+
+  .reaction {
+    gap: 1rem;
+  }
+
+  .like,
+  .comments {
+    font-size: 0.8rem;
+  }
+  
+  .addBoard svg {
+    font-size: 3rem;
+  }
+  
+  .addBoard span {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .footerCard {
+    gap: 0.5rem;
+  }
+
+  .user1, .user2, .user3, .user4 {
+    width: 25px;
+    height: 25px;
+    border-width: 1.5px;
+  }
+
+  .reaction {
+    gap: 0.8rem;
+  }
+  
+  .addBoard svg {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .projectBoardContainer {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1800px;
+  }
+
+  .user1, .user2, .user3, .user4 {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .addBoard svg {
+    font-size: 4.5rem;
+  }
+  
+  .addBoard span {
+    font-size: 1.1rem;
+  }
+}

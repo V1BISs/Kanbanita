@@ -10,10 +10,8 @@ const RegistrationPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Данные из Redux (добавляем errors)
   const { email, username, password, errors, isFormValid } = useSelector((state) => state.auth);
   
-  // Локальные состояния для быстрого отображения
   const [localEmail, setLocalEmail] = useState(email);
   const [localUsername, setLocalUsername] = useState(username);
   const [localPassword, setLocalPassword] = useState(password);
@@ -65,11 +63,10 @@ const RegistrationPage = () => {
 
   const handleSubmit = () => {
     if (isFormValid) {
-      navigate("/home");
+      navigate("/home", { replace: true });
     }
   };
 
-  // Функция для определения класса инпута (с ошибкой или без)
   const getInputClassName = (fieldName) => {
     return errors && errors[fieldName] ? 'regField regFieldError' : 'regField';
   };

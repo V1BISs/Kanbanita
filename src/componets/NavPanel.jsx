@@ -1,24 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/navPanel.css";
-import { RiHomeLine } from "react-icons/ri";
-import { BsListTask } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { BiSupport } from "react-icons/bi";
+import SupportModal from "./modals/SupportModal";
+import ProfileModal from "./modals/ProfileModal";
+import SettingsModal from "./modals/SettingsModal"; 
 
 const NavPanel = () => {
+  const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false); 
+
   return (
     <nav className="navMain">
-        
-      <img className="companyLogo"></img>
-      <h1 className="companyName"></h1>
       <div className="navContent">
-      <button className="navButton"><RiHomeLine /></button>
-      <button className="navButton"><BsListTask /></button>
-      <button className="navButton"><FaUser /></button>
-      <button className="navButton"><IoMdSettings /></button>
-      <button className="navButton"><BiSupport /></button>
+        <div className="topNav">
+          <div className="companyLogo">K</div>
+          <button 
+            className="navButton"
+            onClick={() => setIsSupportModalOpen(true)}
+          >
+            <BiSupport />
+          </button>
+        </div>
+        <div className="bottomNav">
+          <button 
+            className="navButton"
+            onClick={() => setIsSettingsModalOpen(true)} 
+          >
+            <IoMdSettings />
+          </button>
+          <button 
+            className="navButton"
+            onClick={() => setIsProfileModalOpen(true)}
+          >
+            <FaUser />
+          </button>
+        </div>
       </div>
+
+      <SupportModal 
+        isOpen={isSupportModalOpen}
+        onClose={() => setIsSupportModalOpen(false)}
+      />
+
+      <ProfileModal 
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
+      />
+
+      <SettingsModal 
+        isOpen={isSettingsModalOpen}
+        onClose={() => setIsSettingsModalOpen(false)}
+      />
     </nav>
   );
 };

@@ -16,6 +16,7 @@
   background-color: rgb(30, 30, 40);
   border-radius: 20px;
   font-family: "montserrat", sans-serif;
+  transition: background-color 0.3s ease;
 }
 
 .headerBoard {
@@ -49,12 +50,14 @@
   font-family: "montserrat", sans-serif;
   font-weight: 600;
   color: white;
+  transition: color 0.3s ease;
 }
 
 .boardInTask {
   font-family: "montserrat", sans-serif;
   font-weight: 600;
   color: #4a4a4a;
+  transition: color 0.3s ease;
 }
 
 .addTask {
@@ -84,14 +87,11 @@
   border-radius: 20px;
   background-color: rgb(48, 48, 58);
   box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
 .complexityTask {
-  background: linear-gradient(
-    135deg,
-    rgb(138, 75, 255),
-    rgb(106, 45, 225)
-  ); 
+  background: linear-gradient(135deg, rgb(138, 75, 255), rgb(106, 45, 225));
   width: fit-content;
   padding: 5px 10px;
   border-radius: 30px;
@@ -106,6 +106,7 @@
   font-family: "montserrat", sans-serif;
   font-weight: 600;
   font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .progressBarBG {
@@ -114,6 +115,7 @@
   background-color: rgba(255, 255, 255, 0.288);
   border-radius: 20px;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .progressBarFill {
@@ -131,6 +133,33 @@
   justify-self: end;
 }
 
+[data-theme="light"] .kanbanBoard {
+  background-color: #f5f5fa;
+}
+
+[data-theme="light"] .boardName,
+[data-theme="light"] .nameTask {
+  color: #333333;
+}
+
+[data-theme="light"] .boardInTask {
+  color: #888888;
+}
+
+[data-theme="light"] .task {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .addTask {
+  color: #333333;
+  border-color: #8a75ff;
+}
+
+[data-theme="light"] .progressBarBG {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 1024px) {
   .boardContainer {
     flex-wrap: wrap;
@@ -145,12 +174,12 @@
 
 @media (min-width: 1600px) {
   .boardContainer {
-    justify-content: space-between; /* Равномерное распределение */
-    gap: 2rem; /* Увеличиваем gap */
+    justify-content: space-between;
+    gap: 2rem;
   }
 
   .kanbanBoard {
-    flex: 1 1 400px;  /* Еще шире */
+    flex: 1 1 400px;
     min-width: 350px;
     max-width: 1100px;
   }

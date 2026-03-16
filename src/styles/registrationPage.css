@@ -12,6 +12,7 @@
   min-height: 100vh;
   padding: 1rem;
   background-color: rgb(20, 18, 28);
+  transition: background-color 0.3s ease;
 }
 
 .registrationPanel {
@@ -25,6 +26,7 @@
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .companyName {
@@ -45,8 +47,8 @@
 
 .registrationForm {
   display: grid;
-  grid-template-rows: repeat(3, auto); 
-  gap: 1rem; 
+  grid-template-rows: repeat(3, auto);
+  gap: 1rem;
   margin: 1rem 0 2rem 0;
 }
 
@@ -77,6 +79,7 @@
 .regPassword::placeholder {
   color: rgb(155, 103, 252);
   font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 .registrationButton {
@@ -124,10 +127,12 @@
 .regField {
   width: 100%;
   padding: 10px;
-  border: 2px solid #ddd;
+  border: 2px solid rgb(56, 52, 71);
   border-radius: 5px;
   font-size: 16px;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  background-color: rgb(20, 18, 28);
+  color: white;
 }
 
 .regField:focus {
@@ -149,13 +154,42 @@
   left: 0;
   color: #ff9999;
   font-size: 12px;
-   font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
 
 .registrationButtonDisabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+[data-theme="light"] .registrationContainer {
+  background-color: #f0f0f8;
+}
+
+[data-theme="light"] .registrationPanel {
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .regEmail,
+[data-theme="light"] .regUserName,
+[data-theme="light"] .regPassword {
+  background-color: #f5f5fa;
+  color: #333333;
+  border-color: #e0e0e8;
+}
+
+[data-theme="light"] .regEmail::placeholder,
+[data-theme="light"] .regUserName::placeholder,
+[data-theme="light"] .regPassword::placeholder {
+  color: #8a75ff;
+}
+
+[data-theme="light"] .regField {
+  background-color: #ffffff;
+  border-color: #d0d0da;
+  color: #333333;
 }
 
 @media (max-width: 768px) {
